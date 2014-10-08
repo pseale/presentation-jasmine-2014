@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demo #2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+<body style="padding-top: 65px">
+ <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Demo #2</a>
+        </div>
+      </div>
+    </div>
+<div class="container">
+<form class="form-horizontal">
+<div class="control-group">
+	<label class="control-label" for="first-name">First Name:</label>
+	<div class="controls">
+	  <input type="text" id="first-name" placeholder="First Name">
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label" for="last-name">Last Name:</label>
+	<div class="controls">
+	  <input type="text" id="last-name" placeholder="Last Name">
+	</div>
+</div>
+
+<div class="control-group">
+	<label class="control-label" for="id-field">ID:</label>
+	<div class="controls">
+	  <input type="text" id="id-field" placeholder="ID">
+	</div>
+</div>
+<hr />
+ <input type="text" placeholder="username" id="username" disabled />
+<button class="btn btn-large" id="btn-pad">Generate username</button>
+</form>
+<p>Username is the first letter of your first name, first letter of your last name, and a 4-digit ID</p>
+</div>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+  $().ready(function() {
+  	$("#btn-pad").click(function(event) {
+  	  event.preventDefault();
+      try {
+
+      $("#username").val("Lassie! Send help!")
+      $("#username").val("")
+  	  var firstName = $('#first-name').val()
+  	  var lastName = $('#last-name').val()
+  	  var id = $('#id-field').val()
+       var z = z || '0';
+        id = id + '';
+        var n = id;
+        var width = 4;
+
+   var num = ~~Number(n)
+  if (!( String(num) === $('#id-field').val() && num >= 0))
+    throw new Error();
+        var result =   n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+
+        //return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        var name = firstName;
+  if (name.trim().length === 0) {
+    throw new Error();
+  }
+      $("#username").val("")
+  
+  var charVal = name.trim()[0]
+  if( charVal.toUpperCase() != charVal.toLowerCase() )
+    /*return */var justContinue = true;
+  else
+    throw new Error()
+  var firstNameCharVal = charVal;
+
+        //return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+         name = lastName;
+  if (name.trim().length === 0) {
+    throw new Error()
+  }
+  
+
+  charVal = name.trim()[0]
+  firstNameCharVal = firstNameCharVal.toLowerCase()
+  if( charVal.toUpperCase() != charVal.toLowerCase() )
+    /*return */var notSureWhatThisIsForButLeaveIt = true;
+  else
+    throw new Error()
+  var lastNameCharVal = charVal.toLowerCase();
+      $("#username").val("")
+
+  	  $("#username").val(firstNameCharVal + lastNameCharVal + result)
+      }
+      catch(e) {
+      $("#username").val("")
+
+      }
+  	})
+  })
+</script>
+</body>
+</html>

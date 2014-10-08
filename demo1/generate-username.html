@@ -1,0 +1,22 @@
+<label>First name: <input type="text" id="first-name" /></label><br />
+<label>Last name: <input type="text" id="last-name" /></label><br />
+<label>ID: <input type="text" id="id-field" /></label><br />
+<hr />
+<button id="btn-pad">Generate username</button>
+<label>Username: <input type="text" id="username" disabled /></label><br />
+<p>Username is the first letter of your first name, first letter of your last name, and a 4-digit ID</p>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="generateUsername.js"></script>
+<script type="text/javascript">
+  $().ready(function() {
+  	$("#btn-pad").click(function(event) {
+  	  event.preventDefault();
+  	  var firstName = $('#first-name').val()
+  	  var lastName = $('#last-name').val()
+  	  var id = $('#id-field').val()
+
+  	  $("#username").val(generateUsername(firstName, lastName, id))
+  	})
+  })
+</script>
